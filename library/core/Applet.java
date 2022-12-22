@@ -101,13 +101,14 @@ public class Applet extends JPanel implements PConstants {
     private float previousScale = 1;
 
     public void size(int width, int height) {
-        // Dimension displaySize = Toolkit.getDefaultToolkit().getScreenSize();
-        // displayWidth = (int) displaySize.getWidth();
-        // displayHeight = (int) displaySize.getHeight();
-        GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-        DisplayMode displayMode = device.getDisplayMode();
-        displayWidth = displayMode.getWidth();
-        displayHeight = displayMode.getHeight();
+        Dimension displaySize = Toolkit.getDefaultToolkit().getScreenSize();
+        displayWidth = (int) displaySize.getWidth();
+        displayHeight = (int) displaySize.getHeight();
+        // GraphicsDevice device =
+        // GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+        // DisplayMode displayMode = device.getDisplayMode();
+        // displayWidth = displayMode.getWidth();
+        // displayHeight = displayMode.getHeight();
         universalScale = 1;
 
         setDoubleBuffered(true);
@@ -152,13 +153,14 @@ public class Applet extends JPanel implements PConstants {
      * display.
      */
     public void fullScreen() {
-        // Dimension displaySize = Toolkit.getDefaultToolkit().getScreenSize();
-        // displayWidth = (int) displaySize.getWidth();
-        // displayHeight = (int) displaySize.getHeight();
-        GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-        DisplayMode displayMode = device.getDisplayMode();
-        displayWidth = displayMode.getWidth();
-        displayHeight = displayMode.getHeight();
+        Dimension displaySize = Toolkit.getDefaultToolkit().getScreenSize();
+        displayWidth = (int) displaySize.getWidth();
+        displayHeight = (int) displaySize.getHeight();
+        // GraphicsDevice device =
+        // GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+        // DisplayMode displayMode = device.getDisplayMode();
+        // displayWidth = displayMode.getWidth();
+        // displayHeight = displayMode.getHeight();
 
         universalScale = displayWidth / 1920.0;
 
@@ -227,6 +229,10 @@ public class Applet extends JPanel implements PConstants {
 
     public Graphics2D getGraphics2D() {
         return g2d;
+    }
+
+    public double getUniversalScale() {
+        return universalScale;
     }
 
     private void addListeners() {
