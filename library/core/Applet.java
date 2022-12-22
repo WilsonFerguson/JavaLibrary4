@@ -104,7 +104,7 @@ public class Applet extends JPanel implements PConstants {
         // Dimension displaySize = Toolkit.getDefaultToolkit().getScreenSize();
         // displayWidth = (int) displaySize.getWidth();
         // displayHeight = (int) displaySize.getHeight();
-        GraphicsDevice device = getGraphicsConfiguration().getDevice();
+        GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
         DisplayMode displayMode = device.getDisplayMode();
         displayWidth = displayMode.getWidth();
         displayHeight = displayMode.getHeight();
@@ -155,7 +155,7 @@ public class Applet extends JPanel implements PConstants {
         // Dimension displaySize = Toolkit.getDefaultToolkit().getScreenSize();
         // displayWidth = (int) displaySize.getWidth();
         // displayHeight = (int) displaySize.getHeight();
-        GraphicsDevice device = getGraphicsConfiguration().getDevice();
+        GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
         DisplayMode displayMode = device.getDisplayMode();
         displayWidth = displayMode.getWidth();
         displayHeight = displayMode.getHeight();
