@@ -153,13 +153,15 @@ public class Applet extends JPanel implements PConstants {
         displayHeight = (int) displaySize.getHeight();
         universalScale = displayWidth / 1920.0;
 
-        this.width = 1920;
-        this.height = (int) (displayHeight * (1920.0 / displayWidth));
+        setDoubleBuffered(true);
+
+        width = 1920;
+        height = (int) (displayHeight * (1920.0 / displayWidth));
 
         PComponent.width = width;
         PComponent.height = height;
 
-        Dimension size = new Dimension(this.width, this.height);
+        Dimension size = new Dimension(displayWidth, displayHeight);
         setMinimumSize(size);
 
         frame = new JFrame("Sketch");
@@ -186,9 +188,11 @@ public class Applet extends JPanel implements PConstants {
 
         fullScreen = true;
 
-        img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        // img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        img = new BufferedImage(displayWidth, displayHeight, BufferedImage.TYPE_INT_ARGB);
         g2d = img.createGraphics();
-        pixels = new color[width * height];
+        // pixels = new color[width * height];
+        pixels = new color[displayWidth * displayHeight];
 
         smooth();
     }
@@ -485,7 +489,7 @@ public class Applet extends JPanel implements PConstants {
         textAlign(CENTER);
         textSize(20);
         textFont("Arial");
-        text(fps, width - 50, 15);
+        text(fps, width - 50, 20);
         pop();
     }
 
@@ -493,7 +497,9 @@ public class Applet extends JPanel implements PConstants {
         color previousColor = color(g2d.getColor());
 
         g2d.setColor(color.toColor());
+        g2d.scale(universalScale, universalScale);
         g2d.fillRect(0, 0, width, height);
+        g2d.scale(1 / universalScale, 1 / universalScale);
 
         g2d.setColor(previousColor.toColor());
     }
@@ -608,11 +614,7 @@ public class Applet extends JPanel implements PConstants {
     }
 
     public void fill(double r, double g, double b, double a) {
-        r = constrain(r, 0, 255);
-        g = constrain(g, 0, 255);
-        b = constrain(b, 0, 255);
-        a = constrain(a, 0, 255);
-        fill(new color((int) r, (int) g, (int) b, (int) a));
+        fill(color(r, g, b, a));
     }
 
     public void fill(double r, double g, double b) {
@@ -712,6 +714,28 @@ public class Applet extends JPanel implements PConstants {
         return frame.getGraphics().getFontMetrics().getHeight();
     }
 
+    public void drawGenericShape(Shape shape) {
+        AffineTransform old = g2d.getTransform();
+
+        g2d.translate(translation.x, translation.y);
+        g2d.scale(scale, scale);
+        g2d.rotate(rotation);
+
+        // Universal scale
+        g2d.scale(universalScale, universalScale);
+
+        // Fill
+        g2d.setColor(fillColor.toColor());
+        g2d.fill(shape);
+
+        // Stroke
+        g2d.setColor(strokeColor.toColor());
+        g2d.setStroke(new BasicStroke((float) strokeWeight));
+        g2d.draw(shape);
+
+        g2d.setTransform(old);
+    }
+
     // Ellipse
     public void drawEllipse(double x, double y, double w, double h) {
         if (ellipseMode == CENTER) {
@@ -719,25 +743,27 @@ public class Applet extends JPanel implements PConstants {
             y -= h / 2;
         }
 
-        AffineTransform old = g2d.getTransform();
+        // AffineTransform old = g2d.getTransform();
 
-        g2d.translate(translation.x, translation.y);
-        g2d.scale(scale, scale);
-        g2d.rotate(rotation);
+        // g2d.translate(translation.x, translation.y);
+        // g2d.scale(scale, scale);
+        // g2d.rotate(rotation);
 
-        Ellipse2D.Double ellipse = new Ellipse2D.Double(x, y, w, h);
-        ellipse.setFrame(x, y, w, h);
+        // Ellipse2D.Double ellipse = new Ellipse2D.Double(x, y, w, h);
+        // ellipse.setFrame(x, y, w, h);
 
-        // Fill
-        g2d.setColor(fillColor.toColor());
-        g2d.fill(ellipse);
+        // // Fill
+        // g2d.setColor(fillColor.toColor());
+        // g2d.fill(ellipse);
 
-        // Stroke
-        g2d.setColor(strokeColor.toColor());
-        g2d.setStroke(new BasicStroke(strokeWeight));
-        g2d.draw(ellipse);
+        // // Stroke
+        // g2d.setColor(strokeColor.toColor());
+        // g2d.setStroke(new BasicStroke(strokeWeight));
+        // g2d.draw(ellipse);
 
-        g2d.setTransform(old);
+        // g2d.setTransform(old);
+
+        drawGenericShape(new Ellipse2D.Double(x, y, w, h));
 
     }
 
@@ -769,6 +795,9 @@ public class Applet extends JPanel implements PConstants {
         g2d.translate(translation.x, translation.y);
         g2d.scale(scale, scale);
         g2d.rotate(rotation);
+
+        // Universal scale
+        g2d.scale(universalScale, universalScale);
 
         g2d.setColor(strokeColor.toColor());
         g2d.setStroke(new BasicStroke(strokeWeight));
@@ -806,6 +835,9 @@ public class Applet extends JPanel implements PConstants {
         g2d.scale(scale, scale);
         g2d.rotate(rotation);
 
+        // Universal scale
+        g2d.scale(universalScale, universalScale);
+
         // Fill
         g2d.setColor(fillColor.toColor());
         g2d.fillPolygon(new int[] { (int) x1, (int) x2, (int) x3, (int) x4 },
@@ -835,21 +867,11 @@ public class Applet extends JPanel implements PConstants {
             y -= h / 2;
         }
 
-        AffineTransform old = g2d.getTransform();
-
-        g2d.translate(translation.x, translation.y);
-        g2d.scale(scale, scale);
-        g2d.rotate(rotation);
-
-        // Fill
-        g2d.setColor(fillColor.toColor());
-        g2d.fill(new RoundRectangle2D.Double(x, y, w, h, r, r));
-        // Stroke
-        g2d.setColor(strokeColor.toColor());
-        g2d.setStroke(new BasicStroke(strokeWeight));
-        g2d.draw(new RoundRectangle2D.Double(x, y, w, h, r, r));
-
-        g2d.setTransform(old);
+        if (r == 0) {
+            drawGenericShape(new Rectangle2D.Double(x, y, w, h));
+        } else {
+            drawGenericShape(new RoundRectangle2D.Double(x, y, w, h, r, r));
+        }
     }
 
     public void rect(double x, double y, double w, double h, double r) {
@@ -893,6 +915,9 @@ public class Applet extends JPanel implements PConstants {
         g2d.scale(scale, scale);
         g2d.rotate(rotation);
 
+        // Universal scale
+        g2d.scale(universalScale, universalScale);
+
         // Fill
         g2d.setColor(fillColor.toColor());
         g2d.fillPolygon(new int[] { (int) x1, (int) x2, (int) x3 },
@@ -933,6 +958,9 @@ public class Applet extends JPanel implements PConstants {
         g2d.scale(scale, scale);
         g2d.rotate(rotation);
 
+        // Universal scale
+        g2d.scale(universalScale, universalScale);
+
         g2d.setColor(fillColor.toColor());
         g2d.drawString(text, (int) x, (int) y);
 
@@ -963,6 +991,9 @@ public class Applet extends JPanel implements PConstants {
         g2d.translate(translation.x, translation.y);
         g2d.scale(scale, scale);
         g2d.rotate(rotation);
+
+        // Universal scale
+        g2d.scale(universalScale, universalScale);
 
         if (shapeMode == RIGID) {
             int[] xPVectors = new int[points.size()];
@@ -1078,11 +1109,10 @@ public class Applet extends JPanel implements PConstants {
         Graphics2D output = (Graphics2D) g.create();
 
         // Draw to a double buffer
-        Image doubleBuffer = createImage((int) (width * universalScale),
-                (int) (height * universalScale));
+        Image doubleBuffer = createImage(displayWidth, displayHeight);
         Graphics2D g2dDoubleBuffer = (Graphics2D) doubleBuffer.getGraphics();
 
-        g2dDoubleBuffer.scale(universalScale, universalScale);
+        // g2dDoubleBuffer.scale(universalScale, universalScale);
 
         g2dDoubleBuffer.drawImage(img, 0, 0, null);
 
