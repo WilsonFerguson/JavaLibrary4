@@ -732,12 +732,10 @@ public class Applet extends JPanel implements PConstants {
     public void drawGenericShape(Shape shape) {
         AffineTransform old = g2d.getTransform();
 
-        g2d.translate(translation.x, translation.y);
         g2d.scale(scale, scale);
-        g2d.rotate(rotation);
-
-        // Universal scale
         g2d.scale(universalScale, universalScale);
+        g2d.translate(translation.x, translation.y);
+        g2d.rotate(rotation);
 
         // Fill
         g2d.setColor(fillColor.toColor());
@@ -757,26 +755,6 @@ public class Applet extends JPanel implements PConstants {
             x -= w / 2;
             y -= h / 2;
         }
-
-        // AffineTransform old = g2d.getTransform();
-
-        // g2d.translate(translation.x, translation.y);
-        // g2d.scale(scale, scale);
-        // g2d.rotate(rotation);
-
-        // Ellipse2D.Double ellipse = new Ellipse2D.Double(x, y, w, h);
-        // ellipse.setFrame(x, y, w, h);
-
-        // // Fill
-        // g2d.setColor(fillColor.toColor());
-        // g2d.fill(ellipse);
-
-        // // Stroke
-        // g2d.setColor(strokeColor.toColor());
-        // g2d.setStroke(new BasicStroke(strokeWeight));
-        // g2d.draw(ellipse);
-
-        // g2d.setTransform(old);
 
         drawGenericShape(new Ellipse2D.Double(x, y, w, h));
 
@@ -807,12 +785,10 @@ public class Applet extends JPanel implements PConstants {
     public void drawLine(double x1, double y1, double x2, double y2) {
         AffineTransform old = g2d.getTransform();
 
-        g2d.translate(translation.x, translation.y);
         g2d.scale(scale, scale);
-        g2d.rotate(rotation);
-
-        // Universal scale
         g2d.scale(universalScale, universalScale);
+        g2d.translate(translation.x, translation.y);
+        g2d.rotate(rotation);
 
         g2d.setColor(strokeColor.toColor());
         g2d.setStroke(new BasicStroke(strokeWeight));
@@ -846,12 +822,10 @@ public class Applet extends JPanel implements PConstants {
     public void drawQuad(double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4) {
         AffineTransform old = g2d.getTransform();
 
-        g2d.translate(translation.x, translation.y);
         g2d.scale(scale, scale);
-        g2d.rotate(rotation);
-
-        // Universal scale
         g2d.scale(universalScale, universalScale);
+        g2d.translate(translation.x, translation.y);
+        g2d.rotate(rotation);
 
         // Fill
         g2d.setColor(fillColor.toColor());
@@ -926,12 +900,10 @@ public class Applet extends JPanel implements PConstants {
     public void drawTriangle(double x1, double y1, double x2, double y2, double x3, double y3) {
         AffineTransform old = g2d.getTransform();
 
-        g2d.translate(translation.x, translation.y);
         g2d.scale(scale, scale);
-        g2d.rotate(rotation);
-
-        // Universal scale
         g2d.scale(universalScale, universalScale);
+        g2d.translate(translation.x, translation.y);
+        g2d.rotate(rotation);
 
         // Fill
         g2d.setColor(fillColor.toColor());
@@ -969,12 +941,10 @@ public class Applet extends JPanel implements PConstants {
         }
         y += h / 4;
 
-        g2d.translate(translation.x, translation.y);
         g2d.scale(scale, scale);
-        g2d.rotate(rotation);
-
-        // Universal scale
         g2d.scale(universalScale, universalScale);
+        g2d.translate(translation.x, translation.y);
+        g2d.rotate(rotation);
 
         g2d.setColor(fillColor.toColor());
         g2d.drawString(text, (int) x, (int) y);
@@ -1003,12 +973,10 @@ public class Applet extends JPanel implements PConstants {
     public void drawShape() {
         AffineTransform old = g2d.getTransform();
 
-        g2d.translate(translation.x, translation.y);
         g2d.scale(scale, scale);
-        g2d.rotate(rotation);
-
-        // Universal scale
         g2d.scale(universalScale, universalScale);
+        g2d.translate(translation.x, translation.y);
+        g2d.rotate(rotation);
 
         if (shapeMode == RIGID) {
             int[] xPVectors = new int[points.size()];
