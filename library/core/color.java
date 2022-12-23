@@ -10,6 +10,10 @@ public class color extends PFunctions {
         this(c.getRed(), c.getGreen(), c.getBlue(), c.getAlpha());
     }
 
+    public color(color c, double alpha) {
+        this(c.r, c.g, c.b, alpha);
+    }
+
     public color(double r, double g, double b, double alpha) {
         this.r = (int) constrain(r, 0, 255);
         this.g = (int) constrain(g, 0, 255);

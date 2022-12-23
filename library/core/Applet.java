@@ -674,21 +674,16 @@ public class Applet extends JPanel implements PConstants {
     }
 
     // Stroke
-    public void stroke(color color, int a) {
-        a = Helper.constrain(a, 0, 255);
-        strokeColor = new color(color.getRed(), color.getGreen(), color.getBlue(), a);
+    public void stroke(color c, int a) {
+        strokeColor = color(c, a);
     }
 
-    public void stroke(color color) {
-        strokeColor = color;
+    public void stroke(color c) {
+        strokeColor = c;
     }
 
     public void stroke(double r, double g, double b, double a) {
-        r = Helper.constrain(r, 0, 255);
-        g = Helper.constrain(g, 0, 255);
-        b = Helper.constrain(b, 0, 255);
-        a = Helper.constrain(a, 0, 255);
-        stroke(new color((int) r, (int) g, (int) b, (int) a));
+        stroke(color(r, g, b, a));
     }
 
     public void stroke(double r, double g, double b) {
@@ -2467,6 +2462,10 @@ public class Applet extends JPanel implements PConstants {
     // color
     public color color(Color color) {
         return new color(color);
+    }
+
+    public color color(color c, double a) {
+        return new color(c, a);
     }
 
     public color color(double gray, double alpha) {
