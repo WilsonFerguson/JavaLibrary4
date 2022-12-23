@@ -584,6 +584,9 @@ public class Applet extends JPanel implements PConstants {
     }
 
     public color get(int x, int y) {
+        if (x < 0 || x >= width || y < 0 || y >= height) {
+            return new color(0);
+        }
         return pixels[y * width + x];
     }
 
@@ -592,6 +595,9 @@ public class Applet extends JPanel implements PConstants {
     }
 
     public void set(int x, int y, color color) {
+        if (x < 0 || x >= width || y < 0 || y >= height) {
+            return;
+        }
         pixels[y * width + x] = color;
     }
 
@@ -600,11 +606,11 @@ public class Applet extends JPanel implements PConstants {
     }
 
     public void set(int x, int y, int c) {
-        set(x, y, new color(c));
+        set(x, y, color.fromInt(c));
     }
 
     public void set(double x, double y, int c) {
-        set(x, y, new color(c));
+        set(x, y, color.fromInt(c));
     }
 
     // Push/Pop
