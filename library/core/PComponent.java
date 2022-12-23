@@ -14,11 +14,11 @@ public class PComponent extends PFunctions {
     // All variables
     public static color[] pixels;
 
-    public static float mouseX = 0;
-    public static float mouseY = 0;
+    public static int mouseX = 0;
+    public static int mouseY = 0;
     public static PVector mouse = PVector.zero();
-    public static float pmouseX = 0;
-    public static float pmouseY = 0;
+    public static int pmouseX = 0;
+    public static int pmouseY = 0;
     public static PVector pmouse = PVector.zero();
 
     public static int width;

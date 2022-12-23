@@ -44,11 +44,11 @@ public class Applet extends JPanel implements PConstants {
     private PVector translation = PVector.zero();
     private float scale = 1;
 
-    public float mouseX = 0;
-    public float mouseY = 0;
+    public int mouseX = 0;
+    public int mouseY = 0;
     public PVector mouse = PVector.zero();
-    public float pmouseX = 0;
-    public float pmouseY = 0;
+    public int pmouseX = 0;
+    public int pmouseY = 0;
     public PVector pmouse = PVector.zero();
 
     public int width;
