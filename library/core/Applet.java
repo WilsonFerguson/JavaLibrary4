@@ -202,8 +202,7 @@ public class Applet extends JPanel implements PConstants {
         // img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         img = new BufferedImage(displayWidth, displayHeight, BufferedImage.TYPE_INT_ARGB);
         g2d = img.createGraphics();
-        // pixels = new color[width * height];
-        pixels = new color[displayWidth * displayHeight];
+        pixels = new color[width * height];
 
         smooth();
     }
@@ -546,7 +545,17 @@ public class Applet extends JPanel implements PConstants {
 
     // Pixels
     public void loadPixels() {
-        WritableRaster raster = img.getRaster();
+        BufferedImage readImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        if (universalScale != 1) {
+            Graphics2D g2d = readImage.createGraphics();
+            g2d.scale(universalScale, universalScale);
+            g2d.drawImage(img, 0, 0, null);
+            g2d.dispose();
+        } else {
+            readImage = img;
+        }
+
+        WritableRaster raster = readImage.getRaster();
         int[] pixelsInt = new int[width * height];
         raster.getDataElements(0, 0, width, height, pixelsInt);
         for (int i = 0; i < pixelsInt.length; i++) {
@@ -560,8 +569,18 @@ public class Applet extends JPanel implements PConstants {
             pixelsInt[i] = pixels[i].getRGB();
         }
 
-        // img.setRGB(0, 0, width, height, pixelsInt, 0, width);
-        img.getRaster().setDataElements(0, 0, width, height, pixelsInt); // Much faster
+        // img.getRaster().setDataElements(0, 0, width, height, pixelsInt); // Much
+        // faster
+        if (universalScale != 1) {
+            BufferedImage writeImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+            writeImage.getRaster().setDataElements(0, 0, width, height, pixelsInt);
+            Graphics2D g2d = img.createGraphics();
+            g2d.scale(universalScale, universalScale);
+            g2d.drawImage(writeImage, 0, 0, null);
+            g2d.dispose();
+        } else {
+            img.getRaster().setDataElements(0, 0, width, height, pixelsInt);
+        }
     }
 
     public color get(int x, int y) {
