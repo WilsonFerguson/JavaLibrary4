@@ -134,10 +134,10 @@ public class Applet extends JPanel implements PConstants {
 
         addListeners();
 
-        noiseXOffset = Helper.random(1000.0f);
-        noiseYOffset = Helper.random(1000.0f);
-        noiseZOffset = Helper.random(1000.0f);
-        noiseWOffset = Helper.random(1000.0f);
+        noiseXOffset = MathHelper.random(1000.0f);
+        noiseYOffset = MathHelper.random(1000.0f);
+        noiseZOffset = MathHelper.random(1000.0f);
+        noiseWOffset = MathHelper.random(1000.0f);
 
         frame.setVisible(true);
 
@@ -189,10 +189,10 @@ public class Applet extends JPanel implements PConstants {
 
         addListeners();
 
-        noiseXOffset = Helper.random(1000.0f);
-        noiseYOffset = Helper.random(1000.0f);
-        noiseZOffset = Helper.random(1000.0f);
-        noiseWOffset = Helper.random(1000.0f);
+        noiseXOffset = MathHelper.random(1000.0f);
+        noiseYOffset = MathHelper.random(1000.0f);
+        noiseZOffset = MathHelper.random(1000.0f);
+        noiseWOffset = MathHelper.random(1000.0f);
 
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setVisible(true);
@@ -487,6 +487,7 @@ public class Applet extends JPanel implements PConstants {
         if (Window.frameRate <= 0) {
             Window.frameRate = 60;
         }
+        Window.frameRateDelay = 1000 / Window.frameRate;
     }
 
     public void displayFrameRate() {
@@ -704,12 +705,12 @@ public class Applet extends JPanel implements PConstants {
 
     // Stroke Weight
     public void strokeWeight(double weight) {
-        strokeWeight = Helper.constrain(weight, 0, weight);
+        strokeWeight = MathHelper.constrain(weight, 0, weight);
     }
 
     // Text Size
     public void textSize(double size) {
-        textSize = Helper.constrain(size, 0, size);
+        textSize = MathHelper.constrain(size, 0, size);
     }
 
     // Text Align
@@ -2258,7 +2259,7 @@ public class Applet extends JPanel implements PConstants {
     }
 
     public float abs(double n) {
-        return Helper.abs(n);
+        return MathHelper.abs(n);
     }
 
     public int ceil(double n) {
@@ -2270,11 +2271,11 @@ public class Applet extends JPanel implements PConstants {
     }
 
     public float constrain(double value, double min, double max) {
-        return Helper.constrain(value, min, max);
+        return MathHelper.constrain(value, min, max);
     }
 
     public float constrain(int value, int min, int max) {
-        return Helper.constrain(value, min, max);
+        return MathHelper.constrain(value, min, max);
     }
 
     public float dist(double x1, double y1, double x2, double y2) {
@@ -2290,7 +2291,7 @@ public class Applet extends JPanel implements PConstants {
     }
 
     public float lerp(double start, double stop, double amt) {
-        return Helper.lerp(start, stop, amt);
+        return MathHelper.lerp(start, stop, amt);
     }
 
     public float ln(double n) {
@@ -2310,7 +2311,7 @@ public class Applet extends JPanel implements PConstants {
     }
 
     public float map(double value, double min1, double max1, double min2, double max2) {
-        return Helper.map(value, min1, max1, min2, max2);
+        return MathHelper.map(value, min1, max1, min2, max2);
     }
 
     public float max(double n1, double n2) {
@@ -2346,11 +2347,11 @@ public class Applet extends JPanel implements PConstants {
     }
 
     public float norm(double value, double min, double max) {
-        return Helper.norm(value, min, max);
+        return MathHelper.norm(value, min, max);
     }
 
     public float pow(double n, double e) {
-        return Helper.pow(n, e);
+        return MathHelper.pow(n, e);
     }
 
     public int round(double n) {
@@ -2362,48 +2363,48 @@ public class Applet extends JPanel implements PConstants {
     }
 
     public float sqrt(double n) {
-        return Helper.sqrt(n);
+        return MathHelper.sqrt(n);
     }
 
     // Trigonometry Functions
     public float acos(double n) {
-        return Helper.acos(n);
+        return MathHelper.acos(n);
     }
 
     public float asin(double n) {
-        return Helper.asin(n);
+        return MathHelper.asin(n);
     }
 
     public float atan(double n) {
-        return Helper.atan(n);
+        return MathHelper.atan(n);
     }
 
     public float atan2(double y, double x) {
-        return Helper.atan2(y, x);
+        return MathHelper.atan2(y, x);
     }
 
     public float cos(double angle) {
-        return Helper.cos(angle);
+        return MathHelper.cos(angle);
     }
 
     public float sin(double angle) {
-        return Helper.sin(angle);
+        return MathHelper.sin(angle);
     }
 
     public float tan(double angle) {
-        return Helper.tan(angle);
+        return MathHelper.tan(angle);
     }
 
     public float csc(double angle) {
-        return 1 / Helper.sin(angle);
+        return 1 / MathHelper.sin(angle);
     }
 
     public float sec(double angle) {
-        return 1 / Helper.cos(angle);
+        return 1 / MathHelper.cos(angle);
     }
 
     public float cot(double angle) {
-        return 1 / Helper.tan(angle);
+        return 1 / MathHelper.tan(angle);
     }
 
     public float acsc(double n) {
@@ -2428,15 +2429,15 @@ public class Applet extends JPanel implements PConstants {
 
     // Random Functions
     public float random(double high) {
-        return Helper.random(high);
+        return MathHelper.random(high);
     }
 
     public float random(double low, double high) {
-        return Helper.random(low, high);
+        return MathHelper.random(low, high);
     }
 
     public float random() {
-        return Helper.random();
+        return MathHelper.random();
     }
 
     public float randomGaussian() {
@@ -2444,15 +2445,15 @@ public class Applet extends JPanel implements PConstants {
     }
 
     public float noise(double x, double y, double z, double w) {
-        return Helper.perlinNoise(x + noiseXOffset, y + noiseYOffset, z + noiseZOffset, w + noiseWOffset);
+        return MathHelper.perlinNoise(x + noiseXOffset, y + noiseYOffset, z + noiseZOffset, w + noiseWOffset);
     }
 
     public float noise(double x, double y, double z) {
-        return Helper.perlinNoise(x + noiseXOffset, y + noiseYOffset, z + noiseZOffset);
+        return MathHelper.perlinNoise(x + noiseXOffset, y + noiseYOffset, z + noiseZOffset);
     }
 
     public float noise(double x, double y) {
-        return Helper.perlinNoise(x + noiseXOffset, y + noiseYOffset);
+        return MathHelper.perlinNoise(x + noiseXOffset, y + noiseYOffset);
     }
 
     public float noise(double x) {
@@ -2505,11 +2506,11 @@ public class Applet extends JPanel implements PConstants {
     }
 
     public color lerpColor(color c1, color c2, double amt) {
-        return new color(
-                (int) Helper.lerp(c1.getRed(), c2.getRed(), amt),
-                (int) Helper.lerp(c1.getGreen(), c2.getGreen(), amt),
-                (int) Helper.lerp(c1.getBlue(), c2.getBlue(), amt),
-                (int) Helper.lerp(c1.getAlpha(), c2.getAlpha(), amt));
+        return color(
+                MathHelper.lerp(c1.getRed(), c2.getRed(), amt),
+                MathHelper.lerp(c1.getGreen(), c2.getGreen(), amt),
+                MathHelper.lerp(c1.getBlue(), c2.getBlue(), amt),
+                MathHelper.lerp(c1.getAlpha(), c2.getAlpha(), amt));
     }
 
     public float saturation(color color) {

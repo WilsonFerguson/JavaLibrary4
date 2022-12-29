@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 public class Window {
 
     public static int frameRate = 60;
+    public static int frameRateDelay = 1000 / frameRate;
 
     public static void init(Applet applet) {
         run(applet);
@@ -76,10 +77,10 @@ public class Window {
                 // Set the frame rate
                 long end = System.currentTimeMillis();
                 long time = end - start;
-                if (time < 1000 / frameRate) {
+                if (time < frameRateDelay) {
                     try {
-                        Thread.sleep(1000 / frameRate - time);
-                    } catch (InterruptedException e1) {
+                        Thread.sleep(frameRateDelay - time);
+                    } catch (Exception e1) {
                         e1.printStackTrace();
                     }
                 }

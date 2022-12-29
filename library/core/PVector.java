@@ -139,7 +139,7 @@ public class PVector {
      * 
      */
     public PVector normalize() {
-        float length = Helper.sqrt(x * x + y * y + z * z);
+        float length = MathHelper.sqrt(x * x + y * y + z * z);
         if (length != 0.0)
             div(length);
 
@@ -164,7 +164,7 @@ public class PVector {
      * @return float
      */
     public float mag() {
-        return Helper.sqrt(x * x + y * y + z * z);
+        return MathHelper.sqrt(x * x + y * y + z * z);
     }
 
     /**
@@ -183,7 +183,7 @@ public class PVector {
      */
     public float heading() {
         // Returns the angle of the vector
-        return Helper.atan2(y, x);
+        return MathHelper.atan2(y, x);
     }
 
     /**
@@ -223,7 +223,7 @@ public class PVector {
         float dx = x - vector.x;
         float dy = y - vector.y;
         float dz = z - vector.z;
-        return Helper.sqrt(dx * dx + dy * dy + dz * dz);
+        return MathHelper.sqrt(dx * dx + dy * dy + dz * dz);
     }
 
     /**
@@ -239,7 +239,7 @@ public class PVector {
         float dx = this.x - (float) x;
         float dy = this.y - (float) y;
         float dz = this.z - (float) z;
-        return Helper.sqrt(dx * dx + dy * dy + dz * dz);
+        return MathHelper.sqrt(dx * dx + dy * dy + dz * dz);
     }
 
     /**
@@ -639,7 +639,7 @@ public class PVector {
         PVector p2 = vector2.copy();
 
         float dot = p1.dot(p2);
-        float angle = Helper.acos(dot / (p1.mag() * p2.mag()));
+        float angle = MathHelper.acos(dot / (p1.mag() * p2.mag()));
         return angle;
     }
 
@@ -658,7 +658,7 @@ public class PVector {
      * @return PVector
      */
     public static PVector random2D() {
-        float angle = Helper.random(PConstants.TWO_PI);
+        float angle = MathHelper.random(PConstants.TWO_PI);
         return PVector.fromAngle(angle);
     }
 
@@ -668,10 +668,10 @@ public class PVector {
      * @return PVector
      */
     public static PVector random3D() {
-        float angle = Helper.random(PConstants.TWO_PI);
-        float vz = Helper.random(-1, 1);
-        float vx = Helper.sqrt(1 - vz * vz) * Helper.cos(angle);
-        float vy = Helper.sqrt(1 - vz * vz) * Helper.sin(angle);
+        float angle = MathHelper.random(PConstants.TWO_PI);
+        float vz = MathHelper.random(-1, 1);
+        float vx = MathHelper.sqrt(1 - vz * vz) * MathHelper.cos(angle);
+        float vy = MathHelper.sqrt(1 - vz * vz) * MathHelper.sin(angle);
         return new PVector(vx, vy, vz);
     }
 
@@ -681,7 +681,7 @@ public class PVector {
      * @return PVector
      */
     public static PVector randomPosition() {
-        return new PVector(Helper.random(0, PComponent.width), Helper.random(0, PComponent.height));
+        return new PVector(MathHelper.random(0, PComponent.width), MathHelper.random(0, PComponent.height));
     }
 
     /**
@@ -691,6 +691,6 @@ public class PVector {
      * @return PVector
      */
     public static PVector fromAngle(double angle) {
-        return new PVector(Helper.cos(angle), Helper.sin(angle));
+        return new PVector(MathHelper.cos(angle), MathHelper.sin(angle));
     }
 }
