@@ -650,6 +650,10 @@ public class Applet extends JPanel implements PConstants {
     }
 
     // Fill
+    public void fill(color color, double a) {
+        fillColor = color(color, a);
+    }
+
     public void fill(color color) {
         fillColor = color;
     }
@@ -675,7 +679,7 @@ public class Applet extends JPanel implements PConstants {
     }
 
     // Stroke
-    public void stroke(color c, int a) {
+    public void stroke(color c, double a) {
         strokeColor = color(c, a);
     }
 

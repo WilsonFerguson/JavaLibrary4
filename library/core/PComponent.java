@@ -193,6 +193,10 @@ public class PComponent extends PFunctions {
     }
 
     // Fill
+    public void fill(color color, double a) {
+        applet.fill(color, a);
+    }
+
     public void fill(color color) {
         applet.fill(color);
     }
@@ -218,7 +222,7 @@ public class PComponent extends PFunctions {
     }
 
     // Stroke
-    public void stroke(color color, int a) {
+    public void stroke(color color, double a) {
         applet.stroke(color, a);
     }
 

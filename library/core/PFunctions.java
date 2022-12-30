@@ -1299,6 +1299,10 @@ public class PFunctions implements PConstants {
         return new color(color);
     }
 
+    public color color(color c, double a) {
+        return new color(c, a);
+    }
+
     public color color(double gray, double alpha) {
         return new color(gray, alpha);
     }
