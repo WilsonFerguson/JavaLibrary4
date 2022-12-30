@@ -59,6 +59,106 @@ public class MathHelper {
     }
 
     /**
+     * Returns a random {@code char} from the given {@code char[]}.
+     * 
+     * @param array
+     * @return char
+     */
+    public static char random(char[] array) {
+        return array[(int) random(array.length)];
+    }
+
+    /**
+     * Returns a random {@code byte} from the given {@code byte[]}.
+     * 
+     * @param array
+     * @return byte
+     */
+    public static byte random(byte[] array) {
+        return array[(int) random(array.length)];
+    }
+
+    /**
+     * Returns a random {@code int} from the given {@code int[]}.
+     * 
+     * @param array
+     * @return int
+     */
+    public static int random(int[] array) {
+        return array[(int) random(array.length)];
+    }
+
+    /**
+     * Returns a random {@code long} from the given {@code long[]}.
+     * 
+     * @param array
+     * @return long
+     */
+    public static long random(long[] array) {
+        return array[(int) random(array.length)];
+    }
+
+    /**
+     * Returns a random {@code float} from the given {@code float[]}.
+     * 
+     * @param array
+     * @return float
+     */
+    public static float random(float[] array) {
+        return array[(int) random(array.length)];
+    }
+
+    /**
+     * Returns a random {@code double} from the given {@code double[]}.
+     * 
+     * @param array
+     * @return double
+     */
+    public static double random(double[] array) {
+        return array[(int) random(array.length)];
+    }
+
+    /**
+     * Returns a random {@code boolean} from the given {@code boolean[]}.
+     * 
+     * @param array
+     * @return boolean
+     */
+    public static boolean random(boolean[] array) {
+        return array[(int) random(array.length)];
+    }
+
+    /**
+     * Returns a random {@code String} from the given {@code String[]}.
+     * 
+     * @param array
+     * @return String
+     */
+    public static String random(String[] array) {
+        return array[(int) random(array.length)];
+    }
+
+    /**
+     * Returns a random {@code PVector} from the given {@code PVector[]}.
+     * 
+     * @param array
+     * @return PVector
+     */
+    public static PVector random(PVector[] array) {
+        return array[(int) random(array.length)];
+    }
+
+    /**
+     * Returns a random {@code Object} from the given {@code Object[]}.
+     * 
+     * @param array
+     * @return Object
+     */
+    public static Object random(Object[] array) {
+        return array[(int) random(array.length)];
+    }
+
+    /**
      * Maps a given {@code float} value from one range to another.
      * 
      * @param value

@@ -2445,6 +2445,46 @@ public class Applet extends JPanel implements PConstants {
         return MathHelper.random();
     }
 
+    public char random(char[] array) {
+        return MathHelper.random(array);
+    }
+
+    public byte random(byte[] array) {
+        return MathHelper.random(array);
+    }
+
+    public int random(int[] array) {
+        return MathHelper.random(array);
+    }
+    
+    public long random(long[] array) {
+        return MathHelper.random(array);
+    }
+    
+    public float random(float[] array) {
+        return MathHelper.random(array);
+    }
+    
+    public double random(double[] array) {
+        return MathHelper.random(array);
+    }
+    
+    public boolean random(boolean[] array) {
+        return MathHelper.random(array);
+    }
+    
+    public String random(String[] array) {
+        return MathHelper.random(array);
+    }
+
+    public PVector random(PVector[] array) {
+        return MathHelper.random(array);
+    }
+
+    public Object random(Object[] array) {
+        return MathHelper.random(array);
+    }
+
     public float randomGaussian() {
         return (float) (new Random().nextGaussian());
     }
