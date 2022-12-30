@@ -1,4 +1,5 @@
 package library.core;
+
 public interface PConstants {
     // Drawing modes
     public final int CENTER = 0;

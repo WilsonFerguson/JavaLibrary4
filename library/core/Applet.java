@@ -1134,7 +1134,8 @@ public class Applet extends JPanel implements PConstants {
     }
 
     public void exit() {
-        frame.dispose();
+        if (frame != null)
+            frame.dispose();
         System.exit(0);
     }
 
