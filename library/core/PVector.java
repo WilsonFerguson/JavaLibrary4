@@ -649,7 +649,7 @@ public class PVector {
      * @return PVector
      */
     public static PVector zero() {
-        return new PVector(0, 0);
+        return new PVector(0, 0, 0);
     }
 
     /**
