@@ -237,7 +237,7 @@ public class MathHelper {
     }
 
     /**
-     * Lerps between two {@code float} values.
+     * Linearly lerps between two {@code float} values.
      * 
      * @param start
      * @param stop
@@ -247,6 +247,17 @@ public class MathHelper {
      */
     public static float lerp(double start, double stop, double amt) {
         return (float) (start + (stop - start) * amt);
+    }
+
+    /**
+     * Smoothly lerps between two {@code float} values.
+     * 
+     * @param start
+     * @param stop
+     * @param amt
+     */
+    public static float lerpSmooth(double start, double stop, double amt) {
+        return lerp(start, stop, amt * amt * (3 - 2 * amt));
     }
 
     /**

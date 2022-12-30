@@ -2299,6 +2299,10 @@ public class Applet extends JPanel implements PConstants {
         return MathHelper.lerp(start, stop, amt);
     }
 
+    public float lerpSmooth(double start, double stop, double amt) {
+        return MathHelper.lerpSmooth(start, stop, amt);
+    }
+
     public float ln(double n) {
         return (float) Math.log(n);
     }
