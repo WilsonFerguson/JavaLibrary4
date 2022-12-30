@@ -65,6 +65,8 @@ public class MathHelper {
      * @return char
      */
     public static char random(char[] array) {
+        if (array.length == 0)
+            return 0;
         return array[(int) random(array.length)];
     }
 
@@ -75,6 +77,8 @@ public class MathHelper {
      * @return byte
      */
     public static byte random(byte[] array) {
+        if (array.length == 0)
+            return 0;
         return array[(int) random(array.length)];
     }
 
@@ -85,6 +89,8 @@ public class MathHelper {
      * @return int
      */
     public static int random(int[] array) {
+        if (array.length == 0)
+            return 0;
         return array[(int) random(array.length)];
     }
 
@@ -95,6 +101,8 @@ public class MathHelper {
      * @return long
      */
     public static long random(long[] array) {
+        if (array.length == 0)
+            return 0;
         return array[(int) random(array.length)];
     }
 
@@ -105,6 +113,8 @@ public class MathHelper {
      * @return float
      */
     public static float random(float[] array) {
+        if (array.length == 0)
+            return 0;
         return array[(int) random(array.length)];
     }
 
@@ -115,6 +125,8 @@ public class MathHelper {
      * @return double
      */
     public static double random(double[] array) {
+        if (array.length == 0)
+            return 0;
         return array[(int) random(array.length)];
     }
 
@@ -125,6 +137,8 @@ public class MathHelper {
      * @return boolean
      */
     public static boolean random(boolean[] array) {
+        if (array.length == 0)
+            return false;
         return array[(int) random(array.length)];
     }
 
@@ -135,6 +149,8 @@ public class MathHelper {
      * @return String
      */
     public static String random(String[] array) {
+        if (array.length == 0)
+            return "";
         return array[(int) random(array.length)];
     }
 
@@ -145,6 +161,8 @@ public class MathHelper {
      * @return PVector
      */
     public static PVector random(PVector[] array) {
+        if (array.length == 0)
+            return PVector.zero();
         return array[(int) random(array.length)];
     }
 
@@ -155,6 +173,8 @@ public class MathHelper {
      * @return Object
      */
     public static Object random(Object[] array) {
+        if (array.length == 0)
+            return null;
         return array[(int) random(array.length)];
     }
 
