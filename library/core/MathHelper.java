@@ -257,7 +257,11 @@ public class MathHelper {
      * @param amt
      */
     public static float lerpSmooth(double start, double stop, double amt) {
-        return lerp(start, stop, amt * amt * (3 - 2 * amt));
+        // return lerp(start, stop, amt * amt * (3 - 2 * amt));
+        double progress = lerp(-Math.PI/2, Math.PI/2, amt);
+        progress = Math.sin(progress);
+        progress = (progress/2) + 0.5;
+        return lerp(start, stop, progress);
     }
 
     /**
