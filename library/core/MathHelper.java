@@ -179,6 +179,18 @@ public class MathHelper {
     }
 
     /**
+     * Returns a random {@code color} from the given {@code color[]}.
+     * 
+     * @param array
+     * @return color
+     */
+    public static color random(color[] array) {
+        if (array.length == 0)
+            return new color(0);
+        return array[(int) random(array.length)];
+    }
+
+    /**
      * Maps a given {@code float} value from one range to another.
      * 
      * @param value

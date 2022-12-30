@@ -187,6 +187,34 @@ public class Helper {
     }
 
     /**
+     * Converts an {@code ArrayList<Character>} to a {@code char[]}.
+     * 
+     * @param arr
+     * @return char[]
+     */
+    public static char[] toCharArray(ArrayList<Character> arr) {
+        char[] charArr = new char[arr.size()];
+        for (int i = 0; i < arr.size(); i++) {
+            charArr[i] = arr.get(i);
+        }
+        return charArr;
+    }
+
+    /**
+     * Converts an {@code ArrayList<Byte>} to a {@code byte[]}.
+     * 
+     * @param arr
+     * @return byte[]
+     */
+    public static byte[] toByteArray(ArrayList<Byte> arr) {
+        byte[] byteArr = new byte[arr.size()];
+        for (int i = 0; i < arr.size(); i++) {
+            byteArr[i] = arr.get(i);
+        }
+        return byteArr;
+    }
+
+    /**
      * Converts an {@code ArrayList<Integer>} to an {@code int[]}.
      * 
      * @param arr
@@ -198,6 +226,118 @@ public class Helper {
             intArr[i] = arr.get(i);
         }
         return intArr;
+    }
+
+    /**
+     * Converts an {@code ArrayList<Long>} to a {@code long[]}.
+     * 
+     * @param arr
+     * @return long[]
+     */
+    public static long[] toLongArray(ArrayList<Long> arr) {
+        long[] longArr = new long[arr.size()];
+        for (int i = 0; i < arr.size(); i++) {
+            longArr[i] = arr.get(i);
+        }
+        return longArr;
+    }
+
+    /**
+     * Converts an {@code ArrayList<Float>} to a {@code float[]}.
+     * 
+     * @param arr
+     * @return float[]
+     */
+    public static float[] toFloatArray(ArrayList<Float> arr) {
+        float[] floatArr = new float[arr.size()];
+        for (int i = 0; i < arr.size(); i++) {
+            floatArr[i] = arr.get(i);
+        }
+        return floatArr;
+    }
+
+    /**
+     * Converts an {@code ArrayList<Double>} to a {@code double[]}.
+     * 
+     * @param arr
+     * @return double[]
+     */
+    public static double[] toDoubleArray(ArrayList<Double> arr) {
+        double[] doubleArr = new double[arr.size()];
+        for (int i = 0; i < arr.size(); i++) {
+            doubleArr[i] = arr.get(i);
+        }
+        return doubleArr;
+    }
+
+    /**
+     * Converts an {@code ArrayList<Boolean>} to a {@code boolean[]}.
+     * 
+     * @param arr
+     * @return boolean[]
+     */
+    public static boolean[] toBooleanArray(ArrayList<Boolean> arr) {
+        boolean[] booleanArr = new boolean[arr.size()];
+        for (int i = 0; i < arr.size(); i++) {
+            booleanArr[i] = arr.get(i);
+        }
+        return booleanArr;
+    }
+
+    /**
+     * Converts an {@code ArrayList<String>} to a {@code String[]}.
+     * 
+     * @param arr
+     * @return String[]
+     */
+    public static String[] toStringArray(ArrayList<String> arr) {
+        String[] stringArr = new String[arr.size()];
+        for (int i = 0; i < arr.size(); i++) {
+            stringArr[i] = arr.get(i);
+        }
+        return stringArr;
+    }
+
+    /**
+     * Converts an {@code ArrayList<PVector>} to a {@code PVector[]}.
+     * 
+     * @param arr
+     * @return PVector[]
+     */
+    public static PVector[] toPVectorArray(ArrayList<PVector> arr) {
+        PVector[] pvectorArr = new PVector[arr.size()];
+        for (int i = 0; i < arr.size(); i++) {
+            pvectorArr[i] = arr.get(i);
+        }
+        return pvectorArr;
+    }
+
+    /**
+     * Converts an {@code ArrayList<Object>} to an {@code Object[]}.
+     * 
+     * @param arr
+     * @return Object[]
+     */
+    public static Object[] toObjectArray(ArrayList<Object> arr) {
+        Object[] objectArr = new Object[arr.size()];
+        for (int i = 0; i < arr.size(); i++) {
+            objectArr[i] = arr.get(i);
+        }
+        return objectArr;
+    }
+
+    /**
+     * Converts an {@code ArrayList<color>} to a {@code color[]}.
+     * 
+     * @param arr
+     * @return color[]
+     */
+    public static color[] toColorArray(ArrayList<color> arr) {
+        color[] colorArr = new color[arr.size()];
+        for (int i = 0; i < arr.size(); i++) {
+            colorArr[i] = arr.get(i);
+        }
+        return colorArr;
     }
 
     /**

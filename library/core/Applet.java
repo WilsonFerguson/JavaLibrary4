@@ -2456,23 +2456,23 @@ public class Applet extends JPanel implements PConstants {
     public int random(int[] array) {
         return MathHelper.random(array);
     }
-    
+
     public long random(long[] array) {
         return MathHelper.random(array);
     }
-    
+
     public float random(float[] array) {
         return MathHelper.random(array);
     }
-    
+
     public double random(double[] array) {
         return MathHelper.random(array);
     }
-    
+
     public boolean random(boolean[] array) {
         return MathHelper.random(array);
     }
-    
+
     public String random(String[] array) {
         return MathHelper.random(array);
     }
@@ -2671,5 +2671,50 @@ public class Applet extends JPanel implements PConstants {
                 e.printStackTrace();
             }
         }
+    }
+
+    // Converting ArrayLists to arrays
+    public char[] toCharArray(ArrayList<Character> array) {
+        return Helper.toCharArray(array);
+    }
+
+    public byte[] toByteArray(ArrayList<Byte> array) {
+        return Helper.toByteArray(array);
+    }
+
+    public int[] toIntArray(ArrayList<Integer> array) {
+        return Helper.toIntArray(array);
+    }
+
+    public long[] toLongArray(ArrayList<Long> array) {
+        return Helper.toLongArray(array);
+    }
+
+    public float[] toFloatArray(ArrayList<Float> array) {
+        return Helper.toFloatArray(array);
+    }
+
+    public double[] toDoubleArray(ArrayList<Double> array) {
+        return Helper.toDoubleArray(array);
+    }
+
+    public boolean[] toBooleanArray(ArrayList<Boolean> array) {
+        return Helper.toBooleanArray(array);
+    }
+
+    public String[] toStringArray(ArrayList<String> array) {
+        return Helper.toStringArray(array);
+    }
+
+    public PVector[] toPVectorArray(ArrayList<PVector> array) {
+        return Helper.toPVectorArray(array);
+    }
+
+    public Object[] toObjectArray(ArrayList<Object> array) {
+        return Helper.toObjectArray(array);
+    }
+
+    public color[] toColorArray(ArrayList<color> array) {
+        return Helper.toColorArray(array);
     }
 }
